@@ -1,3 +1,8 @@
+//var buttonEl = document.getElementById('formSub');
+var buttonEl2 = document.getElementById('formSub2');
+var formEl = document.getElementById('formEl');
+var formEl2 = document.getElementById('formEl2');
+
 function postRequest(url, data) {
   return fetch(url, {
     credentials: 'same-origin', // 'include', default: 'omit'
@@ -10,14 +15,12 @@ function postRequest(url, data) {
 }
 
 postRequest('http://localhost:1337/auth/local', {
-  identifier: 'eldacigan@gmail.com',
-  password: 'DnT3LVZVRND74pq',
+  identifier: formEl2.email.value,
+  password: formEl2.pass.value,
+  // identifier: 'eldacigan@gmail.com',
+  // password: 'DnT3LVZVRND74pq',
 }).then((data) => {
-  var buttonEl = document.getElementById('formSub');
-  var formEl = document.getElementById('formEl');
-  var formEl2 = document.getElementById('formEl2');
-
-  buttonEl.addEventListener('click', function () {
+  buttonEl2.addEventListener('click', function () {
     const myHeaders = new Headers({
       'Content-Type': 'application/json',
       Authorization: `Bearer ${data.jwt}`,

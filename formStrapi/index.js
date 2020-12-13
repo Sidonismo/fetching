@@ -25,5 +25,9 @@ buttonEl.addEventListener('click', function () {
     // password: 'DnT3LVZVRND74pq',
   }).then((data) => {
     localStorage.setItem('token', data.jwt);
+    // HTTP redirect:
+    if (data.jwt) {
+      window.location.replace('cms.html');
+    }
   });
 });

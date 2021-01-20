@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1250">
+<script src="test23_soubory/jquery.js"></script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+
+    
+ fetch("http://www.wesmir.cz/eli/uka.php")
+  .then(response => response.text())
+  .then(text => {
+    const parser = new DOMParser();
+    const htmlDocument = parser.parseFromString(text, "text/html");
+    const section = htmlDocument.documentElement.querySelector("H1");
+    document.querySelector("#div1").appendChild(section);
+  })   
+    
+                    
+                   });                  
+    
+  });
+
+</script>
+</head>
+<body>
+
+<p>////////////////Tagy zvlast////////////////////</p>
+<div id="div1"><h2>Nacte externi soubor</h2><h3>Satori</h3><h3>Satori</h3><h3>Satori</h3><h3>Satori</h3><h3>Satori</h3><h3>Satori</h3></div>
+<div id="div2"><h2>Nacte externi soubor</h2></div>
+
+<p>/////////////Puvodni obsah souboru ////////////</p><p>
+</p><div id="div3"><h2>Nacte externi soubor</h2></div>
+<button>Nacti</button>
+
+
+
+</body></html>

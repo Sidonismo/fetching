@@ -3,7 +3,7 @@ const isOk = (response) =>
     ? response.json()
     : Promise.reject(new Error('Failed to load data from server'));
 
-fetch('https://api.github.com/orgs/nodejs')
+fetch('https://szidon.com/nastroje')
   .then(isOk) // <= Use `isOk` function here
   .then((data) => {
     console.log(data); // Prints result from `response.json()`
